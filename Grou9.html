@@ -29,25 +29,30 @@
         const onLineArray = [];
         const offLineArray = [];
         const awayArray = [];
-        const newObj=[]
+        // const newObj=[{}]
         array.forEach((item, index) => {
           if (item.status == "online" && item.lastActivity > 10) {
             awayArray.push(item.username);
-            if(awayArray.length){
-              newObj.push({away:awayArray})
-            }
+            // if(awayArray.length){
+            //   newObj.push({away:awayArray})
+            // }
           } else if (item.status == "offline") {
             offLineArray.push(item.username);
-            if(offLineArray.length){
-              newObj.push({offline:offLineArray})
-            }
+            // if(offLineArray.length){
+            //   newObj.push({offline:offLineArray})
+            // }
           } else if (item.status == "online") {
             onLineArray.push(item.username);
-            if(onLineArray.length){
-              newObj.push({online:onLineArray})
-            }
+            // if(onLineArray.length){
+            //   newObj.push({online:onLineArray})
+            // }
           }
         });
+        const newObj=[{
+          online:onLineArray,
+          offline:offLineArray,
+          away:awayArray
+        }]
         return newObj;
       };
     </script>
