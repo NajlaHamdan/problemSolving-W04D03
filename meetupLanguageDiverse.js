@@ -52,12 +52,18 @@ const fuct = () => {
   const JavaScript = list.filter((item) => item.language == "JavaScript");
   const Ruby = list.filter((item) => item.language == "Ruby");
   const Python = list.filter((item) => item.language == "Python");
-  console.log(JavaScript.length);
-  console.log(Ruby.length);
-  console.log(Python.length);
-  if(JavaScript.length > Ruby.length**2 || JavaScript.length >Python.length**2){
+  const JavaScriptlen=JavaScript.length**2;
+  const Rubytlen=Ruby.length**2;
+  const Pythonlen=Python.length**2;
+  console.log(Rubytlen," ",Pythonlen);
+  if(JavaScript.length > Rubytlen && JavaScript.length > Pythonlen){
     return true;
-  }else{
+  }else if(Python.length > JavaScriptlen && Python.length > Rubytlen){
+    return true;
+  }else if(Ruby.length > JavaScriptlen && Ruby.length > Pythonlen){
+    return true;
+  }
+  else{
     return false;
   }
 };
