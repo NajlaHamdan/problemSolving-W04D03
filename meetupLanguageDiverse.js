@@ -1,4 +1,4 @@
-var list = [
+const list = [
   {
     firstName: "Daniel",
     lastName: "J.",
@@ -49,7 +49,15 @@ var list = [
   },
 ];
 const fuct = () => {
-  const JavaScript = list.map((item) => item.language == "JavaScript");
-  const Ruby = list.map((item) => item.language == "Ruby");
-  const Python = list.map((item) => item.language == "Python");
+  const JavaScript = list.filter((item) => item.language == "JavaScript");
+  const Ruby = list.filter((item) => item.language == "Ruby");
+  const Python = list.filter((item) => item.language == "Python");
+  console.log(JavaScript.length);
+  console.log(Ruby.length);
+  console.log(Python.length);
+  if(JavaScript.length > Ruby.length**2 || JavaScript.length >Python.length**2){
+    return true;
+  }else{
+    return false;
+  }
 };
