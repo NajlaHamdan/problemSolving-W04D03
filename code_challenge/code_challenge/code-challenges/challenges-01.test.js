@@ -9,9 +9,9 @@ Use `forEach` to loop over the input array and work with each value.  Push the n
 ------------------------------------------------------------------------------------------------ */
 
 const addOne = (arr) => {
-  const localArray=[]
-  arr.forEach(element => {
-    localArray.push(element+1);
+  const localArray = [];
+  arr.forEach((element) => {
+    localArray.push(element + 1);
   });
   return localArray;
   // Solution code here...
@@ -26,9 +26,9 @@ Use `forEach` to loop over the input array. Modify each string, and add the upda
 ------------------------------------------------------------------------------------------------ */
 
 const addExclamation = (arr) => {
-  const localArray=[]
-  arr.forEach(element => {
-    localArray.push(element+"!");
+  const localArray = [];
+  arr.forEach((element) => {
+    localArray.push(element + "!");
   });
   return localArray;
   // Solution code here...
@@ -43,8 +43,8 @@ Use `forEach` to loop over the input array. The modified strings should each be 
 ------------------------------------------------------------------------------------------------ */
 
 const allUpperCase = (arr) => {
-  const localArray=[]
-  arr.forEach(element => {
+  const localArray = [];
+  arr.forEach((element) => {
     localArray.push(element.toUpperCase());
   });
   return localArray;
@@ -62,16 +62,14 @@ Use `forEach` to build a new array of strings, each string modified by the callb
 ------------------------------------------------------------------------------------------------ */
 
 const greeting = (word) => {
-  return word.toUpperCase();
-  // Solution code here...
+  console.log(word.toUpperCase() + "!");
 };
 
-const speaker = (words, cb) => {
-  const newArray=[];
-  words.cb(element=>{
-    newArray.push(element+2);
-  })
-  // Solution code here...
+const speaker = (words,cb) => {
+  const newArray = [];
+  words.forEach((element) => {
+    cb(element)
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -96,11 +94,11 @@ const addValues = (arr, value) => {
 };
 
 const addNumbers = (num, arr, times, cb) => {
-  const newArray=[];
-  for(i=0;i<times;i++){
-    arr.cb(element=>{
-      newArray.push(element+num);
-    })
+  const newArray = [];
+  for (i = 1; i < times; i++) {
+    arr.cb((element) => {
+      newArray.push(element + num);
+    });
   }
   // Solution code here...
 };
@@ -123,7 +121,15 @@ The inventory is formatted like this:
 This function should use forEach to populate your grocery list based on the store's inventory. If the item is available, add it to your list. Return the final list.
 ------------------------------------------------------------------------------------------------ */
 
-const createList = (availableItems) => {
+const createList = (inventory) => {
+  const available = [];
+  inventory.forEach((item) => {
+    if (item.available == true) {
+      available.push(item.name);
+    }
+  });
+  console.log(available);
+  return available;
   // Solution code here...
 };
 
@@ -142,18 +148,18 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  const result=[]
-  arr.forEach(element=>{
-    if(element%3==0 && element%5==0){
+  const result = [];
+  arr.forEach((element) => {
+    if (element % 3 == 0 && element % 5 == 0) {
       result.push("Fizz Buzz");
-    }else if(element%5==0){
-      result.push("Buzz"); 
-    }else if(element%3==0){
+    } else if (element % 5 == 0) {
+      result.push("Buzz");
+    } else if (element % 3 == 0) {
       result.push("Fizz");
-    }else{
+    } else {
       result.push(element);
     }
-  })
+  });
   return result;
   // Solution code here...
 };
