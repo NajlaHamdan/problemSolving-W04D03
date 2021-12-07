@@ -106,6 +106,7 @@ console.log(a) prints [1, 2, 3, 4]
 ------------------------------------------------------------------------------------------------ */
 
 const append = (arr1, arr2) => {
+  console.log(arr1.push(...arr2));
   // Solution code here...
 };
 
