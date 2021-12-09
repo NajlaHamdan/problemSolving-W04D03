@@ -46,6 +46,8 @@ HINT: Beware... JS default is "Lexical" ordering.
 ------------------------------------------------------------------------------------------------ */
 
 const sortNumbers = (arr) => {
+  arr.sort((a,b)=>{return a-b});
+  return arr
   // Solution code here...
 };
 
@@ -58,6 +60,8 @@ HINT: Do it with a custom sort callback, not with using `.reverse()`. ;)
 ------------------------------------------------------------------------------------------------ */
 
 const sortBackwards = (arr) => {
+  arr.sort((a,b)=>{return b-a});
+  return arr
   // Solution code here...
 };
 
