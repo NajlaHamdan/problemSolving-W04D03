@@ -7,7 +7,17 @@ Write a function named longestString that takes in an array of strings and retur
 ------------------------------------------------------------------------------------------------ */
 
 const longestString = (arr) => {
-  // Solution code here...
+  let indexValue=0
+let elementLength=0;
+if(!arr.length)return -1
+arr.forEach((element,index) => {
+  if(element.length>=elementLength){
+      elementLength=element.length,
+      indexValue=index
+  console.log(element.length ," ",indexValue," ",elementLength);
+}
+});
+return indexValue
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -19,6 +29,11 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 ------------------------------------------------------------------------------------------------ */
 
 const firstLetters = (arr) => {
+  const newArray=[];
+  arr.forEach(element=>{
+    newArray.push(element[0])
+  })
+  return newArray
   // Solution code here...
 };
 
@@ -31,6 +46,7 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 ------------------------------------------------------------------------------------------------ */
 
 const findHappiness = (arr) => {
+  return arr.filter(item=>item.includes(":)"))
   // Solution code here...
 };
 
