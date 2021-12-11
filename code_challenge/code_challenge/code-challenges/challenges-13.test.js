@@ -7,17 +7,16 @@ Write a function named longestString that takes in an array of strings and retur
 ------------------------------------------------------------------------------------------------ */
 
 const longestString = (arr) => {
-  let indexValue=0
-let elementLength=0;
-if(!arr.length)return -1
-arr.forEach((element,index) => {
-  if(element.length>=elementLength){
-      elementLength=element.length,
-      indexValue=index
-  console.log(element.length ," ",indexValue," ",elementLength);
-}
-});
-return indexValue
+  let indexValue = 0;
+  let elementLength = 0;
+  if (!arr.length) return -1;
+  arr.forEach((element, index) => {
+    if (element.length >= elementLength) {
+      (elementLength = element.length), (indexValue = index);
+      console.log(element.length, " ", indexValue, " ", elementLength);
+    }
+  });
+  return indexValue;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -29,11 +28,11 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 ------------------------------------------------------------------------------------------------ */
 
 const firstLetters = (arr) => {
-  const newArray=[];
-  arr.forEach(element=>{
-    newArray.push(element[0])
-  })
-  return newArray
+  const newArray = [];
+  arr.forEach((element) => {
+    newArray.push(element[0]);
+  });
+  return newArray;
   // Solution code here...
 };
 
@@ -46,7 +45,7 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 ------------------------------------------------------------------------------------------------ */
 
 const findHappiness = (arr) => {
-  return arr.filter(item=>item.includes(":)"))
+  return arr.filter((item) => item.includes(":)"));
   // Solution code here...
 };
 
@@ -71,6 +70,14 @@ For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
 const onlyOddChars = (str) => {
+  const length = str.length;
+  let word = "";
+  for (let x in str) {
+    if (x % 2 == 1) {
+      word += str[x];
+    }
+  }
+  return word
   // Solution code here...
 };
 
@@ -81,6 +88,7 @@ Write a function named allHappy that takes in an array of strings and returns a 
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
+  return arr.every(item=>item.includes(":)"));
   // Solution code here...
 };
 
@@ -91,6 +99,7 @@ Write a function named findAnything that takes in an array of strings, along wit
 ------------------------------------------------------------------------------------------------ */
 
 const findAnything = (arr, target) => {
+  return arr.filter(item=>item.includes(target))
   // Solution code here...
 };
 
@@ -101,6 +110,7 @@ Write a function named findEvery that takes in an array of strings, along with a
 ------------------------------------------------------------------------------------------------ */
 
 const findEvery = (arr, target) => {
+  return arr.every(item=>item.includes(target))
   // Solution code here...
 };
 
@@ -117,6 +127,7 @@ For example, [['Brook Testing', 'Actual Person'], ['Human Person', 'Brook again'
 ------------------------------------------------------------------------------------------------ */
 
 const unenrollBrook = (arr) => {
+  // return arr.filter(item=>!item.includes("Brook"));
   // Solution code here...
 };
 
