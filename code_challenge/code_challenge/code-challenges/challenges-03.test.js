@@ -22,6 +22,11 @@ function lower(str) {
 }
 
 const updateAnimal = (arr, callback) => {
+  const newArray=[];
+  arr.forEach(element => {
+    newArray.push(callback(element));
+  });
+  return newArray;
   // Solution code here...
 };
 
@@ -34,6 +39,7 @@ For example: 'Cat' would come before 'apple'
 ------------------------------------------------------------------------------------------------ */
 
 const sortNames = (arr) => {
+  return arr.sort()
   // Solution code here...
 };
 
@@ -76,6 +82,7 @@ For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetize = (arr) => {
+  return arr.sort();
   // Solution code here...
 };
 
@@ -106,6 +113,7 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetizeBetter = (arr) => {
+  return arr.sort((a,b)=>{return a.toLowerCase().localeCompare(b.toLowerCase())});
   // Solution code here...
 };
 
@@ -116,6 +124,7 @@ Write a function named sortByLength that takes in an array of strings and return
 ------------------------------------------------------------------------------------------------ */
 
 const sortByLength = (arr) => {
+  return arr.sort((a,b)=>{return a.length-b.length})
   // Solution code here...
 };
 
@@ -128,9 +137,13 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 ------------------------------------------------------------------------------------------------ */
 
 const sortNumbersByLength = (arr) => {
-  // Solution code here...
-};
-
+    return arr.sort((a,b) => {
+        if(a.toString().length !== b.toString().length) {
+          return a.toString().length - b.toString().length;
+        }
+        return b - a;
+      })
+    };
 /*-----------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
 
@@ -150,6 +163,8 @@ const people = [
 ];
 
 const sortPeople = (arr) => {
+  console.log(people[0].lastName);
+   return arr.sort((a,b)=>a.lastName-b.lastName);
   // Solution code here...
 };
 

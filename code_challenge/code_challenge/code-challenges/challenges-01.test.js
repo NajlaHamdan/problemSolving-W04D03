@@ -62,14 +62,15 @@ Use `forEach` to build a new array of strings, each string modified by the callb
 ------------------------------------------------------------------------------------------------ */
 
 const greeting = (word) => {
-  console.log(word.toUpperCase() + "!");
+  return word.toUpperCase() + "!";
 };
 
-const speaker = (words,cb) => {
+const speaker = (words, cb) => {
   const newArray = [];
   words.forEach((element) => {
-    cb(element)
+    newArray.push(cb(element));
   });
+  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -95,11 +96,10 @@ const addValues = (arr, value) => {
 
 const addNumbers = (num, arr, times, cb) => {
   const newArray = [];
-  for (i = 1; i < times; i++) {
-    arr.cb((element) => {
-      newArray.push(element + num);
-    });
+  for (let i = 1; i <= times; i++) {
+    cb(arr, num);
   }
+  return arr
   // Solution code here...
 };
 
