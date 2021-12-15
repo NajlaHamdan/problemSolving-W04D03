@@ -7,6 +7,10 @@ Write a function called addTwo that takes in an array and adds two to every valu
 ------------------------------------------------------------------------------------------------ */
 
 const addTwo = (arr) => {
+  const newArray=[];
+  for (let i = 0; i < arr.length; i++) {
+    newArray.push(arr[i]+2);
+  } return newArray;
   // Solution code here...
 };
 
@@ -18,6 +22,8 @@ Write a function named containsW that takes in a string. This function should us
 ------------------------------------------------------------------------------------------------ */
 
 const containsW = (str) => {
+  const w= RegExp('w');
+  return w.test(str) ? true : false;
   // Solution code here...
 };
 
@@ -34,6 +40,8 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const isNum = (input) => {
+  const num=RegExp('[0-9]');
+    return num.test(input) ? true:false
   // Solution code here...
 };
 
@@ -45,6 +53,8 @@ Write a function named containsWorld that takes in a string or number of any len
 ------------------------------------------------------------------------------------------------ */
 
 const containsWorld = (input) => {
+  const world=RegExp('world');
+  return world.test(input) ? true : false;
   // Solution code here...
 };
 
@@ -57,6 +67,15 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
+  const capital=RegExp('[A-Z]');
+  const array=str.split(" ");
+  const capitalSTR=[];
+  array.forEach(element => {
+    if(capital.test(element[0])){
+      capitalSTR.push(element);
+    }
+  });
+  return capitalSTR;
   // Solution code here...
 };
 
@@ -66,6 +85,14 @@ CHALLENGE 6
 Write a function named citiesAtoJ that takes in an array of city names and uses a regular expression pattern to return a new array containing any cities that begin with the letters A through J, inclusive.
 ------------------------------------------------------------------------------------------------ */
 const citiesAtoJ = (arr) => {
+  const cities=RegExp('[A-J]');
+  const newArray=[];
+  arr.forEach(item=>{
+    if(cities.test(item[0])){
+      newArray.push(item);
+    }
+  })
+  return newArray;
   // Solution code here...
 };
 
