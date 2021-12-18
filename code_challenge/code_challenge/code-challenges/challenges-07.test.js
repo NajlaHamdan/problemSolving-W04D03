@@ -7,6 +7,7 @@ Write a function named replaceZeros that, given a string, uses Regex to replace 
 ------------------------------------------------------------------------------------------------ */
 
 const replaceZeros = (string) => {
+  return string.replaceAll('0', 'zero');
   // Solution code here...
 };
 
@@ -17,6 +18,7 @@ Write a function named addOne that, given an array of numbers, uses map to retur
 ------------------------------------------------------------------------------------------------ */
 
 const addOne = (arr) => {
+  return arr.map(item=>item+1);
   // Solution code here...
 };
 
@@ -27,6 +29,7 @@ Write a function named addQuestion that, given an array of strings, uses map to 
 ------------------------------------------------------------------------------------------------ */
 
 const addQuestion = (arr) => {
+  return arr.map(item=>item+'?');
   // Solution code here...
 };
 
@@ -41,6 +44,12 @@ For example, twoToThe([1,2,3]) returns [2,4,8] because 2 ^ 1 = 2, 2 ^ 2 = 4, and
 ------------------------------------------------------------------------------------------------ */
 
 const forLoopTwoToThe = (arr) => {
+  // return arr.map(item=>Math.pow(2,item));
+  let newArray=[];
+  for(let i=0;i<arr.length;i++){
+    newArray.push(2**arr[i])
+  }
+  return newArray;
   // Solution code here...
 };
 
@@ -51,6 +60,11 @@ Write a function named forEachTwoToThe that produces the same output as your for
 ------------------------------------------------------------------------------------------------ */
 
 const forEachTwoToThe = (arr) => {
+  let newArray=[];
+  arr.forEach(item=>{
+    newArray.push(2**item);
+  })
+  return newArray;
   // Solution code here...
 };
 
@@ -61,6 +75,7 @@ Write a function named mapTwoToThe that produces the same output as your forLoop
 ------------------------------------------------------------------------------------------------ */
 
 const mapTwoToThe = (arr) => {
+  return arr.map(item=>Math.pow(2,item));
   // Solution code here...
 };
 
@@ -75,6 +90,8 @@ For example: charCode(['h','i']) returns [104, 105].
 ------------------------------------------------------------------------------------------------ */
 
 const charCode = (arr) => {
+  return arr.map(item=>item.charCodeAt(0));
+  // arr.charCodeAt(0)
   // Solution code here...
 };
 
@@ -89,6 +106,7 @@ For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 ------------------------------------------------------------------------------------------------ */
 
 const evenOdd = (arr) => {
+  return arr.map(item=>item%2==0 ? 'even':'odd');
   // Solution code here...
 };
 

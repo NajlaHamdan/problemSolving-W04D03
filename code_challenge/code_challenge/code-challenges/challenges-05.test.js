@@ -129,6 +129,7 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
+  // gruffaloCrumble.ingredients.splice(0,1).join().substring(4)
   // Solution code here...
 };
 
