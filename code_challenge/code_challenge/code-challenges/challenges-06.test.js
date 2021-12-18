@@ -130,6 +130,12 @@ HR has asked you to change the data to make it easier to print so that it looks 
 ------------------------------------------------------------------------------------------------ */
 
 const updateNumbers = (obj) => {
+  let myObj = [];
+  for (let i = 0; i < Object.keys(obj).length; i++) {
+    let item = Object.keys(obj)[i] + ": " + Object.values(obj)[i];
+    myObj.push(item);
+  }
+  return myObj;
   const res = [];
   for (let key in obj) {
     res.push(`${key} :${object[key]}`);
@@ -191,9 +197,16 @@ Write a function named totalCharacters that takes in an array and returns the nu
 ------------------------------------------------------------------------------------------------ */
 
 const totalCharacters = (arr) => {
-	return arr.reduce(function (previousValue, currValue) {
-		return (previousValue += currValue.length);
-	  }, 0);
+	// return arr.reduce(function (previousValue, currValue) {
+	// 	return (previousValue += currValue.length);
+	//   }, 0);
+  let total = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].spouse) total += 1;
+    if (arr[i].name) total += 1;
+    total += arr[i].children.length;
+  }
+  return total;
   // Solution code here...
 };
 
@@ -209,13 +222,23 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 
 const houseSize = (arr) => {
   const sizes = [];
-  for (i = 0; i < arr.length; i += 2) {
-    const obj = {};
-    obj.house = arr[i];
-    obj.size = arr[i + 1];
-    sizes.push(obj);
+  let hasWife = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].spouse) hasWife = 1;
+    sizes.push({
+      house: arr[i].house,
+      members: arr[i].children.length + hasWife + 1,
+    });
+    hasWife = 0;
   }
   return sizes;
+  // for (i = 0; i < arr.length; i += 2) {
+  //   const obj = {};
+  //   obj.house = arr[i];
+  //   obj.size = arr[i + 1];
+  //   sizes.push(obj);
+  // }
+  // return sizes;
   // Solution code here...
 };
 
@@ -239,6 +262,13 @@ const deceasedSpouses = ["Catelyn", "Lysa", "Robert", "Khal Drogo", "Alerie"];
 
 const houseSurvivors = (arr) => {
   const survivors = [];
+  let hasWife =0
+  for (let i = 0; i < arr.length; i++) {
+    if(arr[i].spouse&&!deceasedSpouses.includes(arr[i].spouse)) hasWife =1
+    survivors.push({house:arr[i].house, members: arr[i].children.length+hasWife+1})
+    hasWife=0
+  }
+  return survivors;
   // Solution code here...
 };
 

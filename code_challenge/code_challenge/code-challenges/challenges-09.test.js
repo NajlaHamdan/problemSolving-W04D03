@@ -19,6 +19,11 @@ Becomes:
 ------------------------------------------------------------------------------------------------ */
 
 function transformToLis(obj) {
+  const res = [];
+  for (let key in obj) {
+    res.push(`<li>${key} :${object[key]}</li>`);
+  }
+  return res;
   // Solution code here...
 }
 
@@ -200,7 +205,13 @@ const characters = [
 ];
 
 const countNumberOfChildren = (arr) => {
-  
+  return arr.reduce((acc,item,index)=>{
+    // return 
+    acc +=item[index].children.length;
+    if (item.children) {
+      acc += item.children.length;
+    }return acc;
+ },0)
   // Solution code here...
 };
 
@@ -213,6 +224,9 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 ------------------------------------------------------------------------------------------------ */
 
 const calculateAverage = (arr) => {
+    return arr.reduce((acc,item,index)=>{
+      return acc +=item
+   },0)/arr.length
   // Solution code here...
 };
 
@@ -225,15 +239,11 @@ You are welcome to use the provided isPrime function.
 ------------------------------------------------------------------------------------------------ */
 
 const isPrime = (value) => {
-  for (let i = 2; i < value; i++) {
-    if (value % i === 0) {
-      return false;
-    }
-  }
-  return value > 1;
+ 
 };
 
 const countPrimeNumbers = (arr) => {
+  
   // Solution code here...
 };
 
@@ -277,6 +287,10 @@ const snorlaxData = {
 };
 
 const extractStat = (statName, arr) => {
+  return arr.reduce((acc, item) => {
+    if (item.stat.name === statName) acc = item;
+    return acc;
+  }, {});
   // Solution code here...
 };
 

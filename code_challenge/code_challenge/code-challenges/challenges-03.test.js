@@ -163,8 +163,21 @@ const people = [
 ];
 
 const sortPeople = (arr) => {
-  console.log(people[0].lastName);
-   return arr.sort((a,b)=>a.lastName-b.lastName);
+  // console.log(people[0].lastName);
+  //  return arr.sort((a,b)=>b.lastName-a.lastName);
+  return arr
+    .sort((a, b) => {
+      let fa = b.lastName,
+        fb = a.lastName;
+
+      if (fa < fb) {
+        return 1;
+      }
+      if (fa > fb) {
+        return -1;
+      }
+      return 0;
+    })
   // Solution code here...
 };
 
@@ -179,7 +192,37 @@ If two people have the same full name, the younger one should come first. Do not
 ------------------------------------------------------------------------------------------------ */
 
 const sortPeopleBetter = (arr) => {
-  // Solution code here...
+  return arr.sort((a, b) => {
+    let fb = b.lastName,
+      fa = a.lastName;
+
+    if (fa < fb) {
+      return 1;
+    }
+    if (fa > fb) {
+      return -1;
+    }
+    if (fa == fb) {
+      if (a.firstName > b.firstName) {
+        return -1;
+      }
+      if (a.firstName < b.firstName) {
+        return 1;
+      }
+      if (a.firstName == b.firstName) {
+        if (a.age < b.age) {
+          return 1;
+        }
+        if (a.age > b.age) {
+          return -1;
+        }
+        return 0
+      }
+      
+    }
+    return 0;
+  }).reverse();
+  // return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -205,6 +248,17 @@ const meetings = [
 ];
 
 const sortMeetingsByDay = (arr) => {
+  const sorted = {
+    "Monday": 1,
+    "Tuesday": 2,
+    "Wednesday": 3,
+    "Thursday": 4,
+    "Friday": 5,
+  }
+  return arr.sort((a, b)=> {
+    return sorted[a.dayOfWeek] - sorted[b.dayOfWeek];
+  });
+  // return arr;
   // Solution code here...
 };
 
@@ -219,6 +273,32 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 ------------------------------------------------------------------------------------------------ */
 
 const sortSchedule = (arr) => {
+  const sorted = {
+    "Monday": 1,
+    "Tuesday": 2,
+    "Wednesday": 3,
+    "Thursday": 4,
+    "Friday": 5,
+  }
+  return arr.sort((a, b) => {
+    let fb = sorted[b.dayOfWeek],
+      fa = sorted[a.dayOfWeek];
+    if (fa < fb) {
+      return 1;
+    }
+    if (fa > fb) {
+      return -1;
+    }
+    if (fa == fb) {
+      if (a.start == b.start) {
+        if(a.end-a.start < b.end-b.start){
+          return 1;
+        }
+      }
+    }
+    return 0;
+  }).reverse()
+  // return arr;
   // Solution code here...
 };
 

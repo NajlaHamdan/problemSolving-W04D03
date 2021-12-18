@@ -84,6 +84,7 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 
 const notInFirstArray = (forbiddenValues, arr) => {
   // return arr.filter(item=>item)
+  return arr.filter(item=>!forbiddenValues.includes(item))
   // Solution code here...
 };
 
@@ -139,6 +140,11 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 ------------------------------------------------------------------------------------------------ */
 
 const getStatName = (arr, minBaseStat) => {
+  let newArray = []
+  arr.forEach(item=>{
+    if(item.baseStat>minBaseStat) newArray.push(item.stat.name)
+  })
+  return newArray
   // Solution code here...
 };
 
@@ -204,6 +210,9 @@ For example: evenOddNumericValues(['Gregor', 2, 4, 1]) returns ['even', 'even', 
 ------------------------------------------------------------------------------------------------ */
 
 const evenOddNumericValues = (arr) => {
+  let myArr=[]
+  arr.forEach(item=>typeof item=='number'?item%2==0?myArr.push('even'):myArr.push('odd'):null)
+  return myArr;
   // Solution code here...
 };
 

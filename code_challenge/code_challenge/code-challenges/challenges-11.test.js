@@ -12,6 +12,11 @@ Note the space in between first and last names.
 You can assume that neither firstName nor lastName will be blank
 ------------------------------------------------------------------------------------------------ */
 const toLastNames = (people) => {
+  let person = [];
+  people.map((item) => {
+    person.push(`${item.firstName} ${item.lastName}`);
+  });
+  return person;
   // Solution code here...
 };
 
@@ -24,6 +29,8 @@ If the PIN is four numerical digits long, return true. Otherwise, return false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePin = (pin) => {
+  if (pin.toString().match(/^\d{4}$/g)) return true;
+  return false;
   // Solution code here...
 };
 
@@ -36,6 +43,8 @@ If the word is between 5 and 10 characters long, return true. Otherwise, return 
 ------------------------------------------------------------------------------------------------ */
 
 const validateWord = (word) => {
+  if(word.toString().match(/^[A-Za-z]+$/i)&& word.length.toString().match(/^[5-9]$|10/g)) return true
+  return false;
   // Solution code here...
 };
 
@@ -48,6 +57,8 @@ If it does, return true. If not, return false.
 ------------------------------------------------------------------------------------------------ */
 
 const hasNumber = (string) => {
+  if(string.toString().match(/[A-Za-z]\d/g)) return true
+  return false;
   // Solution code here...
 };
 
@@ -68,6 +79,8 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 ------------------------------------------------------------------------------------------------ */
 
 const validateEmail = (email) => {
+  if(email.toString().match(/^([a-zA-Z0-9]+|[a-zA-Z0-9]+.[a-zA-Z0-9]+)@[a-zA-Z]+(.net|.com|.org)$/g)) return true
+  return false
   // Solution code here...
 };
 

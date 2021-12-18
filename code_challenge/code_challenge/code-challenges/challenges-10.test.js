@@ -23,6 +23,7 @@ Returns: ['dyoll', 'eimaj'];
 ------------------------------------------------------------------------------------------------ */
 
 const getNames = (arr) => {
+  return arr.map(item=>item.name.split("").reverse().join(""));
   // Solution code here...
 };
 
@@ -37,6 +38,14 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 ------------------------------------------------------------------------------------------------ */
 
 const count = (target, input) => {
+    let counter = 0;
+    input.map((item) => {
+      item.map((element) => {
+        if(element==target)counter++;
+      });
+    });
+  
+    return counter;
   // Solution code here...
 };
 
@@ -51,6 +60,13 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
 const totalSum = (input) => {
+  let counter = 0;
+    input.map((item) => {
+      item.map((element) => {
+        counter+=element
+      });
+    });
+    return counter;
   // Solution code here...
 };
 
@@ -67,6 +83,13 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
 
 const divisibleByFiveTwoToThePower = (input) => {
+  return input.map((item) => {
+    return (item = item
+      .map((item) =>
+        typeof item == "number" && item % 5 == 0 ? Math.pow(2, item) : 0
+      )
+      .filter((a) => a != 0));
+  });
   // Solution code here...
 };
 
@@ -135,6 +158,16 @@ let starWarsData = [
 ];
 
 let findMaleAndFemale = (data) => {
+  // let result=data.filter(item=>item.gender=="female" || item.gender=="male");
+  // let name=result.map(item=>item.name);
+  // let and= name.split('');
+  // return and
+  // let str;
+  // for (let item in data){
+  //   if(item.gender == "female" || item.gender=="male"){
+  //     str += item.name +'and'
+  //   }
+  // }return str;
   // Solution code here...
 };
 

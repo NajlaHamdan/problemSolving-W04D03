@@ -67,15 +67,17 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  const capital=RegExp('[A-Z]');
-  const array=str.split(" ");
-  const capitalSTR=[];
-  array.forEach(element => {
-    if(capital.test(element[0])){
-      capitalSTR.push(element);
-    }
-  });
-  return capitalSTR;
+  // const capital=RegExp('[A-Z]');
+  // const array=str.split(" ");
+  // const capitalSTR=[];
+  // array.forEach(element => {
+  //   if(capital.test(element[0])){
+  //     capitalSTR.push(element);
+  //   }
+  // });
+  // return capitalSTR;
+  // return str.test(capital)//||[]
+  return str.match(/\b[A-Z].*?\b/g)||[]
   // Solution code here...
 };
 
@@ -109,6 +111,11 @@ Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
 const matchMonth = (input) => {
+  // let reg=new RegExp('Oct,oct,October,october')
+  if(input.toString().match(/^Oct$|^oct$|^October$|^october$/g)){
+    return true
+  }
+  return false
   // Solution code here...
 };
 
@@ -123,6 +130,8 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 ------------------------------------------------------------------------------------------------ */
 
 const noPunctuation = (str) => {
+  //match return array
+  return str.match(/[A-Za-z0-9]+\s/g)
   // Solution code here...
 };
 
@@ -139,6 +148,7 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 ------------------------------------------------------------------------------------------------ */
 
 let hangman = (str) => {
+  return str.replace(/a|A|e|E|i|I|o|O|u|U/g,'_')
   // Solution code here...
 };
 
@@ -156,6 +166,7 @@ const seashells =
   "She sells seashells by the seashore. The shells she sells are surely seashells. So if she sells shells on the seashore, I'm sure she sells seashore shells.";
 
 const findShells = (str) => {
+  return str.match(/\w*ells\b/g)
   // Solution code here...
 };
 
